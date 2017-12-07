@@ -4,11 +4,11 @@ import java.text.DecimalFormat;
 
 public class Constant {
 	
-	public static final String BASE_URL = "http://ars-staging.greatergood.com";
+	public static final String BASE_URL = "dev-54ta5gq-gyaqx7oecsg5k.us.magentosite.cloud";
 
 	public static final String MAC_URL = "http://192.168.1.133:5566/wd/hub";
 
-	public static final String ARS_SITE = "/store/ars/site";
+	public static final String ARS_SITE = "/s12t";
 
 	public static final int ARS_SITE_ID = 310;
 
