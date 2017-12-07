@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.greatergood</groupId>
+  <artifactId>magento</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>magentoAutomation</name>
+  <url>http://maven.apache.org</url>
+
+  <build>
+		<plugins>
+
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<testErrorIgnore>true</testErrorIgnore>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>ch.fortysix</groupId>
+				<artifactId>maven-postman-plugin</artifactId>
+				<version>0.1.6</version>
+				<configuration>
+					<mailhost>mail.greatergood.com</mailhost>
+					<mailport>25</mailport>
+					<mailssl>false</mailssl>
+					<mailAltConfig>true</mailAltConfig>
+					<mailuser>seleniumautomation@greatergood.com</mailuser>
+					<mailpassword>xyX^4UC)</mailpassword>
+					<from>seleniumautomation@greatergood.com</from>
+					<failonerror>true</failonerror>
+					<receivers>
+						<receiver>varduhi@greatergood.com</receiver>
+					    <receiver>sadams@greatergood.com</receiver>
+						<receiver>vahagn@greatergood.com</receiver>
+						<receiver>sgross@greatergood.com</receiver>
+					    <receiver>ahanke@greatergood.com</receiver>
+					</receivers>
+					<subject>Storefront Automation Test Result</subject>
+					<failonerror>true</failonerror>
+					<htmlMessage>
+                    <![CDATA[
+                    <p>Hello,</p>
+                    <p>Check out the attached automation test results for StoreFront's core functionality.</p>
+                    ]]>
+					</htmlMessage>
+					<fileSets>
+						<fileSet>
+							<directory>target/surefire-reports/</directory>
+							<includes>
+								<include>custom-report.html</include>
+							</includes>
+						</fileSet>
+					</fileSets>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.53.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+	</dependencies>
+</project>

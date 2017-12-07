@@ -1,0 +1,75 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="6" verbose="10" name="Magento test suit"
+	parallel="tests" configfailurepolicy="continue">
+	<!-- Address page required info -->
+	<parameter name="email_prefix" value="storeautomation" />
+	<parameter name="email_suffix" value="@greatergood.com" />
+	<parameter name="password" value="testing" />
+	<parameter name="new_email_prefix" value="storeautomationupdated" />
+	<parameter name="new_password" value="updated" />
+	<parameter name="hint" value="hint" />
+	<parameter name="firstName" value="firstName" />
+	<parameter name="lastName" value="lastName" />
+	<parameter name="streetAddress" value="600 University Street" />
+	<parameter name="country" value="United States" />
+	<parameter name="city" value="Seattle" />
+	<parameter name="state" value="WA" />
+	<parameter name="postalCode" value="98101" />
+	<parameter name="phone" value="1234567890" />
+	<!-- Payment page required info -->
+	<parameter name="cardType" value="Visa" />
+	<parameter name="cardNumber" value="4111111111111111" />
+	<parameter name="securityCode" value="222" />
+	<!-- Paypal info -->
+	<parameter name="paypal_email" value="wfggreatergood-buyer@gmail.com" />
+	<parameter name="paypal_password" value="wfggreatergood123!" />
+	<!-- New account info -->
+	<parameter name="birthdayMonth" value="5" />
+	<parameter name="birthdayDay" value="5" />
+	
+	<listeners>
+         <listener class-name="com.greatergood.magentoAutomation.utility.TestNGCustomReportListener" />
+    </listeners>
+  
+  <test verbose="2" name="Magento FireFox test"
+		group-by-instances="true" preserve-order="true">
+		<parameter name="machine" value="BROWSERSTACK" />
+		<parameter name="os" value="MAC" />
+		<parameter name="os_version" value="" />
+		<parameter name="browser" value="FIREFOX" />
+		<parameter name="browser_version" value="47.0.1" />	
+		<parameter name="device" value="" />
+		<parameter name="deviceOrientation" value="" />
+		<classes>
+		    <class name="com.greatergood.storefrontAutomation.desktop.CreateAccountAndLoginTest" />
+		</classes>
+	</test>  
+  	 	 
+  <test verbose="2" name="Magento Chrome test"
+		group-by-instances="true" preserve-order="true">
+		<parameter name="machine" value="BROWSERSTACK" />
+		<parameter name="os" value="MAC" />
+		<parameter name="os_version" value="" />
+		<parameter name="browser" value="CHROME" />
+		<parameter name="browser_version" value="62.0" />	
+		<parameter name="device" value="" />
+		<parameter name="deviceOrientation" value="" />
+		<classes>
+	        <class name="com.greatergood.storefrontAutomation.desktop.CreateAccountAndLoginTest" />
+		</classes>
+	</test> 
+  
+	 <test verbose="2" name="Magento Safari test"
+		group-by-instances="true" preserve-order="true">
+		<parameter name="machine" value="BROWSERSTACK" />
+		<parameter name="os" value="MAC" />
+		<parameter name="os_version" value="" />
+		<parameter name="browser" value="SAFARI" />
+		<parameter name="browser_version" value="8.0.2" />	
+		<parameter name="device" value="" />
+		<parameter name="deviceOrientation" value="" />
+	    <classes>
+	      	<class name="com.greatergood.storefrontAutomation.desktop.CreateAccountAndLoginTest" />
+		</classes>
+	</test>
+</suite> 
